@@ -6,7 +6,7 @@ ALLOW_INPUTS = (VACANCIES, STATISTICS)
 TEXT_INPUT = 'Выводим вакансии или статистику? Введите одно значение из 2 вариантов: '
 TEXT_ERROR = 'Некорректное значение ввода, попробуйте, пожалуйста, ещё раз.'
 FILE_NAME = '../data/vacancies_by_year.csv'
-VACANCY_NAME = 'Программист'
+VACANCY_NAME = 'Работающий программист'
 
 if __name__ == '__main__':
     while True:
