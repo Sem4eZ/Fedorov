@@ -88,6 +88,7 @@ def formatting_str(self, raw_html):
 
 ![2022-12-11](https://user-images.githubusercontent.com/106344305/206901258-768835a1-7577-4cb7-bcb8-16ca63890164.png)
 
+
 - Время работы с использованием multiprocessing:
 
 ![](скрин323.jpg)
