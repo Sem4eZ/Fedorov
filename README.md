@@ -80,7 +80,7 @@ def formatting_str(self, raw_html):
 ### Задача 3.2.1
 - В результате сформировались файлы по годам.
 
-![](cскрин321.jpg)
+![2022-12-09](https://user-images.githubusercontent.com/106344305/206720448-a6c24c7f-9ff9-474f-8cf1-aaefadc3b37e.png)
 
 ### Задача 3.2.2
 
