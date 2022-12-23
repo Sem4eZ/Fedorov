@@ -1,4 +1,4 @@
-# Khmeleva
+# Fedorov
 
 ### Задача 2.3.2
 
