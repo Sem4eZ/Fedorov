@@ -80,7 +80,7 @@ def formatting_str(self, raw_html):
 ### Задача 3.2.1
 - В результате сформировались файлы по годам.
 
-![](cскрин231.jpg)
+![](cскрин321.jpg)
 
 ### Задача 3.2.2
 
@@ -99,7 +99,7 @@ def formatting_str(self, raw_html):
 
 - Время работы с использованием concurrent.futures(Process):
 
-![](скрин323.jpg)
+![](скрин323.png)
 
 - В сравнении с multiprocessing данная реализация работает чуть дольше.
 
