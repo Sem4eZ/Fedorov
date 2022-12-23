@@ -538,8 +538,6 @@ class Salary:
         59900.0
         >>> Salary('10', '1000', 'true', 'RUR').do_rub(1000)
         1000.0
-        >>> Salary('10', '1000', 'true', 'RUR').do_rub(1000)
-        1000
         >>> Salary('10', '1000', 'true', '123').do_rub(1000.0)
         Traceback (most recent call last):
             ...
