@@ -98,7 +98,7 @@ def formatting_str(self, raw_html):
 
 - Время работы с использованием concurrent.futures(Process):
 
-![](скрин323.jpg)
+![](скрин323.png)
 
 - В сравнении с multiprocessing данная реализация работает чуть дольше.
 
