@@ -644,30 +644,31 @@ reverse_transl = {"Название": "name",
                   "Дата публикации вакансии": "published_at",
                   "Идентификатор валюты оклада": "salary_currency"}
 
-type_output = input('Введите данные для печати: ')
-if type_output == "Статистика":
-    file_name = input('Введите название файла: ')
-    vacancy_name = input('Введите название профессии: ')
-    if os.stat(file_name).st_size == 0:
-        print("Пустой файл")
-        exit()
-    outputer = InputConectStatistics()
-    dataSet = DataSet(file_name)
-    if len(dataSet.vacancies_objects) == 0:
-        print('Нет данных')
-        exit()
-    statistics = outputer.print_res(dataSet, outputer, vacancy_name)
-    rp = Report()
-    rp.generate_excel(vacancy_name, statistics)
-    rp.generate_image(vacancy_name, statistics)
-    rp.generate_pdf(vacancy_name)
-if type_output == "Вакансии":
-    params = InputParam()
-    outputer = InputConnectVacancy(params.param[1], params.param[2], params.param[3], params.param[4], params.param[5])
-    outputer.check_param()
-    if params.param is not None:
-        dataSet = DataSet(params.param[0])
+if __name__ == '__main__':
+    type_output = input('Введите данные для печати: ')
+    if type_output == "Статистика":
+        file_name = input('Введите название файла: ')
+        vacancy_name = input('Введите название профессии: ')
+        if os.stat(file_name).st_size == 0:
+            print("Пустой файл")
+            exit()
+        outputer = InputConectStatistics()
+        dataSet = DataSet(file_name)
         if len(dataSet.vacancies_objects) == 0:
             print('Нет данных')
             exit()
-        outputer.print_vacancies(dataSet.vacancies_objects)
+        statistics = outputer.print_res(dataSet, outputer, vacancy_name)
+        rp = Report()
+        rp.generate_excel(vacancy_name, statistics)
+        rp.generate_image(vacancy_name, statistics)
+        rp.generate_pdf(vacancy_name)
+    if type_output == "Вакансии":
+        params = InputParam()
+        outputer = InputConnectVacancy(params.param[1], params.param[2], params.param[3], params.param[4], params.param[5])
+        outputer.check_param()
+        if params.param is not None:
+            dataSet = DataSet(params.param[0])
+            if len(dataSet.vacancies_objects) == 0:
+                print('Нет данных')
+                exit()
+            outputer.print_vacancies(dataSet.vacancies_objects)
