@@ -88,10 +88,9 @@ def formatting_str(self, raw_html):
 
 ![2022-12-11](https://user-images.githubusercontent.com/106344305/206901258-768835a1-7577-4cb7-bcb8-16ca63890164.png)
 
-
 - Время работы с использованием multiprocessing:
 
-![](скрин323.png)
+![2022-12-11 (1)](https://user-images.githubusercontent.com/106344305/206901282-cfeb984c-c233-4863-9b3c-67168112ec99.png)
 
 - Можно заметить, что время выполнения уменьшилось примерно на 10 секунд.
 
@@ -99,7 +98,7 @@ def formatting_str(self, raw_html):
 
 - Время работы с использованием concurrent.futures(Process):
 
-![](скрин323.png)
+![image](https://user-images.githubusercontent.com/106344305/208094824-1a6a50e2-10d1-4d12-8101-ba2a998d8bed.png)
 
 - В сравнении с multiprocessing данная реализация работает чуть дольше.
 
