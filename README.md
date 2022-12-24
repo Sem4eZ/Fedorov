@@ -1,105 +1,31 @@
-# Fedorov
+ - Задача 3.2.1
 
-### Задача 2.3.2
+![](321.jpg)
 
-Скриншот - все тесты пройдены (unittests):
+ - Задача 3.2.2
 
-![](скрин232.jpg)
+Замер с многопроцессорной обработкой
 
-Скриншот - все тесты пройдены (doctests):
+![многопроцесс](https://user-images.githubusercontent.com/57943773/206781544-f31b3cfa-9222-417d-afcb-291757ba25a2.png)
 
-![](скрин2322.jpg)
+Замер без многопроцессорной обработки
 
-### Задача 2.3.3
+![без многпроцесс](https://user-images.githubusercontent.com/57943773/206781528-e305df74-5a40-4081-85ee-9562892d8483.png)
 
-- Запустил профилизатор в PyCharm, обнаружилось, что одни из самых затратных функций - check_published (изменение формата даты) и formatting_str (очищение строки от лишних символов).
+ - Задача 3.2.3
 
-![datatime](https://user-images.githubusercontent.com/106344305/206180335-870b2830-d700-4733-8512-23dceff98b46.png)
+Замер с многопроцессорной обработкой при помощи Concurrent futures. Выполняется быстрее, выбираем это решение.
 
-- Попробовал осуществить изменение формата даты несколькими способами (метод check_published):
-1) С использованием библиотеки dateutil
+![замер Concurrent futures](https://user-images.githubusercontent.com/57943773/206787295-6627b042-e787-4bd6-9389-93b46df6ad08.png)
 
-```py
-def check_published(date):
-   return parse(date).strftime('%d.%m.%Y')
-```
+ - Задача 3.3.1 (файл есть в репозитории)
 
-- Время работы в профилизаторе:
+![3 3 1](https://user-images.githubusercontent.com/57943773/208959776-58884f39-eb0f-452e-9684-510cbb7766ae.png)
 
-![parse](https://user-images.githubusercontent.com/106344305/206182321-61993f1c-7b20-490b-b5f3-a946d1da65f1.png)
+ - Задача 3.3.2 (вывод в консоль, файл есть в репозитории)
 
+![3_3_2](https://user-images.githubusercontent.com/57943773/208975193-75211971-60dc-4793-aa78-57375243ad87.png)
 
-2) С помощью форматирования строки
+ - Задача 3.3.3
 
-```py
-def check_published(date):
-  date = date[:date.find('T')].split('-')
-  return '.'.join(reversed(date))
-```
-- Время работы в профилизаторе:
-
-![строка](https://user-images.githubusercontent.com/106344305/206182418-b38fc18c-7923-40b4-82c7-063b09e0dfc5.png)
-
-
-3) C использованием библиотеки datetime (первоначальная версия)
-
-```py
-def check_published(date):
-  return datetime.datetime.strptime(date, '%Y-%m-%dT%H:%M:%S%z').strftime('%d.%m.%Y')
-```
-- Время работы в профилизаторе:
-
-![datatime](https://user-images.githubusercontent.com/106344305/206182600-9885410d-164a-40bb-8f46-81794ca236ae.png)
-
-- Оказалось, что быстрее работает второй способ, но было решено сохранить первую версию с использованием библиотеки datetime, так как читабельность кода лучше.
-
-- Попробовал осуществить изменение метода очищения строки от лишних символов (метод formatting_str)
-
-```py
-def formatting_str(self, raw_html):
-  for i in range(len(raw_html)):
-      while raw_html[i].find('<') > -1:
-          index1 = raw_html[i].find('<')
-          index2 = raw_html[i].find('>')
-          raw_html[i] = raw_html[i][:index1] + raw_html[i][index2 + 1:]
-      if '\n' not in raw_html[i]:
-          raw_html[i] = " ".join(raw_html[i].split())
-  return raw_html
-```
-
-- Время работы в профилизаторе:
-
-![formatting](https://user-images.githubusercontent.com/106344305/206183485-76460f7c-fda0-4cf6-853f-4e36bb18c747.png)
-
-- Время работы в профилизаторе первоначальной версии:
-
-![datatime](https://user-images.githubusercontent.com/106344305/206183601-34088a5e-84a2-4781-866d-0401b8523463.png)
-
-- Оказалось, что обе версии работают примерно одинаково, поэтому было решено оставить старую версию метода.
-
-### Задача 3.2.1
-- В результате сформировались файлы по годам.
-
-![](сскрин231.jpg)
-
-### Задача 3.2.2
-
-- Время работы без многопоточности:
-
-![2022-12-11](https://user-images.githubusercontent.com/106344305/206901258-768835a1-7577-4cb7-bcb8-16ca63890164.png)
-
-- Время работы с использованием multiprocessing:
-
-![2022-12-11 (1)](https://user-images.githubusercontent.com/106344305/206901282-cfeb984c-c233-4863-9b3c-67168112ec99.png)
-
-- Можно заметить, что время выполнения уменьшилось примерно на 10 секунд.
-
-### Задача 3.2.3
-
-- Время работы с использованием concurrent.futures(Process):
-
-![](скрин323.png)
-
-- В сравнении с multiprocessing данная реализация работает чуть дольше.
-
-
+![3_3_3](https://user-images.githubusercontent.com/57943773/208978174-aded4f4c-1d37-47ab-9728-ff99d78d967d.png)
